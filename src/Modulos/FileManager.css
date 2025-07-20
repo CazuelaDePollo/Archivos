@@ -1,0 +1,78 @@
+.file-manager {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.manager-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.manager-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.manager-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tab-btn:hover {
+  background-color: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background-color: white;
+  color: #667eea;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.tab-content {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .manager-header h1 {
+    font-size: 2rem;
+  }
+  
+  .tab-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-btn {
+    width: 200px;
+  }
+} 

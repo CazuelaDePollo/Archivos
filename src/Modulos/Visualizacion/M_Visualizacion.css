@@ -1,0 +1,334 @@
+.file-viewer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.viewer-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.viewer-controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+}
+
+.view-mode-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.view-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.view-btn:hover:not(.active) {
+  background-color: #f8f9fa;
+}
+
+.files-container {
+  min-height: 400px;
+}
+
+.no-files {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.no-files-icon {
+  font-size: 64px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.files-grid.list-view {
+  grid-template-columns: 1fr;
+}
+
+.file-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.file-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.file-card.list-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.file-preview {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.file-card.list-item .file-preview {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.file-thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.file-card.list-item .file-thumbnail {
+  width: 80px;
+  height: 80px;
+}
+
+.file-icon-container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.file-card.list-item .file-icon-container {
+  width: 80px;
+  height: 80px;
+}
+
+.file-icon {
+  font-size: 48px;
+  color: #007bff;
+}
+
+.file-card.list-item .file-icon {
+  font-size: 32px;
+}
+
+.file-info {
+  flex: 1;
+}
+
+.file-name {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.file-size, .file-date {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.file-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.file-card.list-item .file-actions {
+  margin-top: 0;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #666;
+}
+
+.action-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.download-btn:hover {
+  color: #007bff;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+}
+
+/* Modal de vista previa */
+.preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-body img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.file-preview-placeholder {
+  padding: 40px;
+  color: #666;
+}
+
+.file-preview-placeholder .file-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer .download-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-footer .download-btn:hover {
+  background-color: #0056b3;
+}
+
+.modal-footer .delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modal-footer .delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .viewer-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .viewer-controls {
+    justify-content: space-between;
+  }
+  
+  .files-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .file-card.list-item {
+    flex-direction: column;
+    text-align: center;
+  }
+} 
